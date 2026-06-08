@@ -1,7 +1,67 @@
 "use client";
 
 import Link from "next/link";
-import { Camera, Share2, Briefcase, Mail, MapPin, Phone } from "lucide-react";
+import { MessageCircle, Mail, MapPin, Phone } from "lucide-react";
+
+interface IconProps {
+  size?: number;
+  className?: string;
+}
+
+const Instagram = ({ size = 24, className = "" }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
+const Facebook = ({ size = 24, className = "" }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+const Youtube = ({ size = 24, className = "" }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.56 49.56 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+    <polygon points="10 15 15 12 10 9" />
+  </svg>
+);
+
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,16 +77,43 @@ export default function Footer() {
           <p className="text-secondary/60 text-sm leading-relaxed max-w-xs font-light">
             Crafting heritage-inspired luxury interiors that blend timeless elegance with modern functionality. Every space tells a story.
           </p>
-          <div className="flex space-x-5">
-            <Link href="#" className="w-10 h-10 rounded-full border border-secondary/10 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all">
-              <Camera size={18} />
-            </Link>
-            <Link href="#" className="w-10 h-10 rounded-full border border-secondary/10 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all">
-              <Share2 size={18} />
-            </Link>
-            <Link href="#" className="w-10 h-10 rounded-full border border-secondary/10 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all">
-              <Briefcase size={18} />
-            </Link>
+          <div className="flex space-x-4">
+            <a 
+              href="https://instagram.com/virasatinteriors" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-full border border-secondary/10 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all"
+              aria-label="Follow us on Instagram"
+            >
+              <Instagram size={18} />
+            </a>
+            <a 
+              href="https://facebook.com/virasatinteriors" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-full border border-secondary/10 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all"
+              aria-label="Follow us on Facebook"
+            >
+              <Facebook size={18} />
+            </a>
+            <a 
+              href="https://youtube.com/@virasatinteriors" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-full border border-secondary/10 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all"
+              aria-label="Subscribe to our YouTube channel"
+            >
+              <Youtube size={18} />
+            </a>
+            <a 
+              href="https://wa.me/918999451189" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-10 h-10 rounded-full border border-secondary/10 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all"
+              aria-label="Contact us on WhatsApp"
+            >
+              <MessageCircle size={18} />
+            </a>
           </div>
         </div>
 

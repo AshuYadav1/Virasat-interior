@@ -18,6 +18,58 @@ export async function POST(request: Request) {
       );
     }
 
+    const isUnconfigured = 
+      !process.env.EMAIL_USER || 
+      !process.env.EMAIL_PASS || 
+      process.env.EMAIL_USER.includes("your-email") || 
+      process.env.EMAIL_PASS.includes("your-app-password") ||
+      !process.env.EMAIL_SERVER;
+
+    if (isUnconfigured) {
+      console.warn("⚠️ SMTP credentials are not properly configured. Running in Mock/Development mode.");
+      console.log("================= MOCK EMAIL LEAD ==================");
+      console.log(`Timestamp: ${new Date().toISOString()}`);
+      console.log(`To Admin (${process.env.ADMIN_EMAIL || "admin@virasatinteriors.com"}):`);
+      console.log(`  Subject: New Lead: ${name} - ${city}`);
+      console.log(`  Body: Phone: ${phone}, Email: ${email}`);
+      console.log(`To Customer (${email}):`);
+      console.log(`  Subject: Thank you for contacting Virasat Interiors`);
+      console.log("====================================================");
+
+      try {
+        const fs = require("fs");
+        const path = require("path");
+        const scratchDir = path.join(process.cwd(), "scratch");
+        if (!fs.existsSync(scratchDir)) {
+          fs.mkdirSync(scratchDir, { recursive: true });
+        }
+        const logPath = path.join(scratchDir, "leads_log.json");
+        let logs = [];
+        if (fs.existsSync(logPath)) {
+          try {
+            logs = JSON.parse(fs.readFileSync(logPath, "utf-8"));
+          } catch (e) {
+            logs = [];
+          }
+        }
+        logs.push({
+          timestamp: new Date().toISOString(),
+          name,
+          email,
+          phone,
+          city,
+        });
+        fs.writeFileSync(logPath, JSON.stringify(logs, null, 2), "utf-8");
+      } catch (err) {
+        console.error("Failed to save mock lead log to file:", err);
+      }
+
+      return NextResponse.json({ 
+        success: true, 
+        message: "Lead captured successfully (Mock Mode active)!" 
+      });
+    }
+
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_SERVER,
       port: Number(process.env.EMAIL_PORT),
