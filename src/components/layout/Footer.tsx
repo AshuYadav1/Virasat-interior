@@ -152,21 +152,44 @@ export default function Footer() {
             <li className="flex items-start space-x-4">
               <MapPin className="text-accent shrink-0" size={18} />
               <span className="text-secondary/60 text-sm font-light leading-relaxed">
-                A-1804 Shree Krishna Elegance,<br />
-                Opposite Deep Sky Building, Madhuban,<br />
-                Vasai East
+                <a 
+                  href="https://share.google/VIYpHKtU51YYsoezv" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-accent transition-all duration-300"
+                >
+                  A-1804 Shree Krishna Elegance,<br />
+                  Opposite Deep Sky Building, Madhuban,<br />
+                  Vasai East
+                </a>
               </span>
             </li>
             <li className="flex items-center space-x-4">
               <Phone className="text-accent shrink-0" size={18} />
-              <span className="text-secondary/60 text-sm font-light">+91 89994 51189</span>
+              <span className="text-secondary/60 text-sm font-light">
+                <a href="tel:+918999451189" className="hover:text-accent transition-all duration-300">
+                  +91 89994 51189
+                </a>
+              </span>
             </li>
             <li className="flex items-center space-x-4">
               <Mail className="text-accent shrink-0" size={18} />
-              <span className="text-secondary/60 text-sm font-light">hello@virasatinteriors.com</span>
+              <span className="text-secondary/60 text-sm font-light">
+                <a href="mailto:virasatinterior@gmail.com" className="hover:text-accent transition-all duration-300">
+                  virasatinterior@gmail.com
+                </a>
+              </span>
             </li>
           </ul>
         </div>
+      </div>
+
+      {/* Serving Areas Section for SEO/GEO/AEO */}
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 mt-12 pt-8 border-t border-secondary/5">
+        <h5 className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/40 mb-3">Serving Areas</h5>
+        <p className="text-secondary/50 text-xs font-light leading-relaxed">
+          Mumbai • Vasai Virar • Dadar • Borivali • Malad • Ghatkopar • Andheri • Bandra • Thane • Navi Mumbai • and other premium residential areas in MMR.
+        </p>
       </div>
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 mt-12 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.3em] text-secondary/30">

@@ -22,16 +22,16 @@ export const metadata: Metadata = {
     default: "Virasat Interiors | Bespoke Luxury Interiors",
     template: "%s | Virasat Interiors",
   },
-  description: "Exquisite interior design services for residential and commercial spaces. Heritage aesthetics meets modern luxury in modular kitchens, wardrobes, and living rooms.",
+  description: "Exquisite interior design services in Mumbai, Vasai Virar, Dadar, Borivali, Malad, Ghatkopar, and surrounding areas. Premium luxury modular kitchens, wardrobes, and home interiors.",
   keywords: [
-    "Interior Design Mumbai",
-    "Bespoke Luxury Interiors",
-    "Modular Kitchen Mumbai",
-    "Heritage Home Decor",
-    "Premium Wardrobes",
-    "Living Room Makeover",
+    "Interior Designers in Mumbai",
+    "Luxury Interior Designers Vasai Virar",
+    "Best Interior Designers Dadar",
+    "Modular Kitchen Borivali",
+    "Home Decor Malad",
+    "Living Room Makeover Ghatkopar",
+    "Bespoke Luxury Interiors Mumbai",
     "Virasat Interiors",
-    "Home Interior Services India",
   ],
   authors: [{ name: "Virasat Interiors" }],
   creator: "Virasat Interiors",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Virasat Interiors | Bespoke Luxury Interiors",
-    description: "Exquisite interior design services for residential and commercial spaces. Heritage aesthetics meets modern luxury in modular kitchens, wardrobes, and living rooms.",
+    description: "Exquisite interior design services in Mumbai, Vasai Virar, Dadar, Borivali, Malad, Ghatkopar, and surrounding areas. Premium luxury modular kitchens, wardrobes, and home interiors.",
     url: "https://virasatinteriors.com",
     siteName: "Virasat Interiors",
     locale: "en_IN",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Virasat Interiors | Bespoke Luxury Interiors",
-    description: "Exquisite interior design & luxury home styling. Heritage elements styled with contemporary aesthetics.",
+    description: "Exquisite interior design services in Mumbai, Vasai Virar, Dadar, Borivali, Malad, Ghatkopar, and surrounding areas. Premium luxury modular kitchens, wardrobes, and home interiors.",
     images: ["/images/hero.png"],
   },
   robots: {
@@ -87,6 +87,79 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-inter">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "InteriorDesign",
+              "name": "Virasat Interiors",
+              "image": "https://virasatinteriors.com/images/hero.png",
+              "@id": "https://virasatinteriors.com/#website",
+              "url": "https://virasatinteriors.com",
+              "telephone": "+91 89994 51189",
+              "email": "virasatinterior@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "A-1804 Shree Krishna Elegance, Opposite Deep Sky Building, Madhuban",
+                "addressLocality": "Vasai East",
+                "addressRegion": "Maharashtra",
+                "postalCode": "401208",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 19.3918,
+                "longitude": 72.8397
+              },
+              "hasMap": "https://share.google/VIYpHKtU51YYsoezv",
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "opens": "09:00",
+                "closes": "21:00"
+              },
+              "sameAs": [
+                "https://www.facebook.com/profile.php?id=61589067932145",
+                "https://www.instagram.com/virasatinterior"
+              ],
+              "areaServed": [
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Mumbai"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Vasai Virar"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Dadar"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Borivali"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Malad"
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  "name": "Ghatkopar"
+                }
+              ]
+            })
+          }}
+        />
         <Navbar />
         <StickyContact />
         <QuoteModal />
