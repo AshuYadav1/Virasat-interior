@@ -79,7 +79,7 @@ export default function Footer() {
           </p>
           <div className="flex space-x-4">
             <a 
-              href="https://instagram.com/virasatinteriors" 
+              href="https://www.instagram.com/virasatinterior" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="w-10 h-10 rounded-full border border-secondary/10 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all"
@@ -88,7 +88,7 @@ export default function Footer() {
               <Instagram size={18} />
             </a>
             <a 
-              href="https://facebook.com/virasatinteriors" 
+              href="https://www.facebook.com/profile.php?id=61589067932145" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="w-10 h-10 rounded-full border border-secondary/10 flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-all"
