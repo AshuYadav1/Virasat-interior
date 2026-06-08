@@ -152,8 +152,9 @@ export default function Footer() {
             <li className="flex items-start space-x-4">
               <MapPin className="text-accent shrink-0" size={18} />
               <span className="text-secondary/60 text-sm font-light leading-relaxed">
-                123 Design Avenue, <br />
-                MG Road, Mumbai - 400001
+                A-1804 Shree Krishna Elegance,<br />
+                Opposite Deep Sky Building, Madhuban,<br />
+                Vasai East
               </span>
             </li>
             <li className="flex items-center space-x-4">
