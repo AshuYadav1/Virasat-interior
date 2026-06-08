@@ -8,7 +8,7 @@ import nodemailer from "nodemailer";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, city } = body;
+    const { name, email, phone, city, address } = body;
 
     // Validation
     if (!name || !phone || !email) {
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
       console.log(`Timestamp: ${new Date().toISOString()}`);
       console.log(`To Admin (${process.env.ADMIN_EMAIL || "admin@virasatinteriors.com"}):`);
       console.log(`  Subject: New Lead: ${name} - ${city}`);
-      console.log(`  Body: Phone: ${phone}, Email: ${email}`);
+      console.log(`  Body: Phone: ${phone}, Email: ${email}, Address: ${address || "N/A"}`);
       console.log(`To Customer (${email}):`);
       console.log(`  Subject: Thank you for contacting Virasat Interiors`);
       console.log("====================================================");
@@ -58,6 +58,7 @@ export async function POST(request: Request) {
           email,
           phone,
           city,
+          address: address || "",
         });
         fs.writeFileSync(logPath, JSON.stringify(logs, null, 2), "utf-8");
       } catch (err) {
@@ -92,6 +93,7 @@ export async function POST(request: Request) {
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone}</p>
           <p><strong>City:</strong> ${city}</p>
+          <p><strong>Address:</strong> ${address || "Not provided"}</p>
           <hr style="border: 1px solid #eee;" />
           <p style="font-size: 12px; color: #777;">Sent from Virasat Interiors Website</p>
         </div>

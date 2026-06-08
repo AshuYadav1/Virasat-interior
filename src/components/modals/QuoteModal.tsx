@@ -10,7 +10,8 @@ export default function QuoteModal() {
     name: "",
     email: "",
     phone: "",
-    city: ""
+    city: "",
+    address: ""
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -176,23 +177,26 @@ export default function QuoteModal() {
                         />
                       </div>
 
-                      <div className="relative">
-                        <select 
+                      <div className="relative group">
+                        <input 
+                          type="text" 
                           required
+                          placeholder="City" 
                           value={formData.city}
                           onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                          className="w-full px-6 py-4 bg-[#F7F7F7] border-2 border-transparent rounded-2xl focus:border-[#C5A059]/20 focus:bg-white outline-none text-[#1A1A1A] transition-all duration-300 appearance-none text-sm cursor-pointer"
-                        >
-                          <option value="">Select Your City</option>
-                          <option value="bangalore">Bangalore</option>
-                          <option value="mumbai">Mumbai</option>
-                          <option value="noida">Noida</option>
-                          <option value="gurugram">Gurugram</option>
-                          <option value="other">Other Cities</option>
-                        </select>
-                        <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-[#1A1A1A]/20">
-                          <ChevronDown size={18} />
-                        </div>
+                          className="w-full px-6 py-4 bg-[#F7F7F7] border-2 border-transparent rounded-2xl focus:border-[#C5A059]/20 focus:bg-white outline-none text-[#1A1A1A] transition-all duration-300 placeholder:text-[#1A1A1A]/30 text-sm"
+                        />
+                      </div>
+
+                      <div className="relative group">
+                        <input 
+                          type="text" 
+                          required
+                          placeholder="Project Address" 
+                          value={formData.address}
+                          onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                          className="w-full px-6 py-4 bg-[#F7F7F7] border-2 border-transparent rounded-2xl focus:border-[#C5A059]/20 focus:bg-white outline-none text-[#1A1A1A] transition-all duration-300 placeholder:text-[#1A1A1A]/30 text-sm"
+                        />
                       </div>
 
                       {status === "error" && (
